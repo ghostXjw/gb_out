@@ -1,0 +1,143 @@
+-
+  var 专题列表 = [[
+    '习近平签署六十七号和六十八号主习近平签署六十七号和六十八号主',
+    '李克强：涉企证照该合要合 该砍一...',
+    '无处遁形！中国公布22名红通人员...',
+    '他是反腐剧中赵瑞龙的原型 仨爹已...',
+    '谷歌卫星地图威胁中国安全？国家...',
+  ],[
+    '美联航与遭暴力拖拽乘客和解 赔偿...',
+    '21省出台出租车改革意见',
+    '五一前中纪委点名这些人:紧盯节日...',
+    'Master architect IM Pei celebrates',
+    `China's achievements in space`,
+  ],[
+    '中상하이 디즈니랜드, 새로운 상업 ...',
+    'China to continue escort mission...',
+    'China to regroup PLA Army',
+    '職員の懲戒処分について',
+    '第４四半期業務報告',
+  ],[
+    '進展なるか北方領土',
+    '李克强：涉企证照该合要合 该砍一...',
+    '緊迫 北朝鮮情勢',
+    'フランス大統領選挙２０１７',
+    '재판이 5일 앞인데, 변호인단 선임 ...',
+  ]]
+
+mixin nav-a(isbtn)
+  .m-nav-a(class={'m-nav-btn': isbtn})
+    .item(onclick=`location.href = '专题列表.html'`, class={active: '专题列表' == title})
+      .i(class='list')
+      | 专题列表
+    .item.kw(onclick=`location.href = '关键词设置.html'`, class={active: '关键词设置' == title})
+      .i(class='kw')
+      | 关键词设置
+    .item.usr(class={active: '用户信息' == title})
+      .i(class='user')
+      | 张三
+      .drop
+        a(href="用户管理.html") 个人中心
+        a(href="javascript:$('.m-fwin-passwd').show();") 修改密码
+        a(href="情报收藏.html") 情报收藏
+        a(href="登录.html") 退出
+
+mixin topic-item-4
+  each list in 专题列表
+    .m-topic-item
+      .head
+        .title
+          +checkbox
+            | 专题标题专题标题专题标题专题标题
+        .num 相关：
+          span.hl 3235条
+        .over
+          a.btn1(href="专题详情.html") 查看
+          a.btn2(href="") 删除
+      .body
+        .desp 所谓专题，是指针对某个特定对象而特别收集制作而成的一种集中作品，这个对象可以是具体的某个人物或者某个事物，也可以是某个抽象的范围或者领域。
+        each line, index in list
+          .line
+            .num(class={active: index < 3})= index + 1
+            a.cont(href="信息详情.html")= line
+
+mixin formline(t, n, ph, pw, ec)
+  .m-formline
+    .label= t
+    input.m-text(type=(pw ? "password" : "text"), class=ec, name=n, placeholder=ph)
+
+mixin checkbox
+  label.checkbox
+    input(type="checkbox")&attributes(attributes)
+    .img
+    block
+
+mixin radioT(c)
+  label.radio.tab
+    input(type="radio")&attributes(attributes)
+    .cont= c
+
+mixin radioL(c)
+  label.radio.lab
+    input(type="radio")&attributes(attributes)
+    .cont= c
+
+mixin radioC(c)
+  label.radio.lst
+    input(type="radio")&attributes(attributes)
+    .cont= c
+
+mixin pagenum
+  - var n = 6
+  .m-pagenum
+    while n --> 0
+      a.num(href='#', class={active: n == 5})= 6 - n
+    a.next(href='#') 下一页
+
+mixin fwin(name, title)
+  - var c = `m-fwin-${name}`
+  .m-fwin(class=c)
+    .fwin
+      .head
+        .title= title
+        .i.close(onclick=`$('.${c}').hide()`)
+      .body
+        block
+
+mixin fwin-btns(name)
+  - var c = `m-fwin-${name}`
+  .m-btns
+    button.m-btn.primary 保存
+    button.m-btn.normal(onclick=`$('.${c}').hide()`) 取消
+
+block vars
+
+doctype html
+html(lang="zh")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title #{title} | 信息搜索平台
+    link(rel="stylesheet", href="lib/flatpickr.min.css")
+    link(rel="stylesheet", href="lib/themes/airbnb.css")
+    link(rel="stylesheet", href="css/basic.css")
+    block style
+  body
+    block content
+    .m-foot
+      | Copyright © 2013-2017 TUYIYI.COM - 信息搜索平台 - 苏ICP备12010950号-
+    block tpl
+    +fwin('passwd', '修改密码')
+      +formline('旧密码', 'oldpass', '请输入旧密码', true)
+      a.forget(href="忘记密码.html") 忘记密码?
+      +formline('新密码', 'newpass0', '请输入新密码', true)
+      +formline('确认密码', 'newpass1', '请再次输入密码', true)
+      +fwin-btns('passwd')
+    script(src="lib/jquery.min.js")
+    script(src="lib/handlebars.min.js")
+    script(src="lib/flatpickr.min.js")
+    script(src="lib/l10n/zh.js")
+    script(src="js/basic.js")
+    block script
+        

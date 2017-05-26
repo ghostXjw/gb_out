@@ -1,0 +1,41 @@
+extends part/page.pug
+
+append vars
+  - var title = '专题列表'
+
+append style
+  link(rel="stylesheet", href="css/专题库.css")
+
+append script
+  script(src="js/专题库.js")
+
+block page
+  .m-page-topiclib.normal
+    .m-titleline 专题库
+      .btns
+        a.addtop(href="javascript:$('.m-fwin-new').show();")
+          .i.addl
+          | 添加专题
+        a.share(href="javascript:changeTo('share');")
+          .i.share
+          | 添加至大屏
+        a.rmall(href="javascript:changeTo('rmall');")
+          .i.rm
+          | 批量删除
+        a.addyes(href="javascript:;")
+          .i.yes
+          | 确认添加
+        a.rmyes(href="javascript:;")
+          .i.ryes
+          | 确认删除
+        a.cancel(href="javascript:changeTo('normal');")
+          .i.close
+          | 取消
+    .m-topics
+      .title 张三专题
+      .cont
+        +topic-item-4
+    .m-topics
+      .title 李四专题
+      .cont
+        +topic-item-4

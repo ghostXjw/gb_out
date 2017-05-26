@@ -1,0 +1,137 @@
+extends part/page.pug
+
+append vars
+  -
+    var title = '专题列表'
+    var 专题列表 = [[
+      '朴槿惠下台的最新消息',
+      '【2018年翻译硕士考研-百科热词连载18:闺蜜门】是2016年发生在韩国的政治事件,韩国总统朴槿惠被民众直指容许密友崔顺实干政,触发全国多城民众上街示威,要求朴槿惠下台。朴槿惠的支持率降至历史低点,数以千计的街头抗议者呼吁其辞职。这是2014年沉船事故后众多高层官员辞职和'
+    ],[
+      '侠客岛:韩国总统朴槿惠离下台还有多远',
+      '继11月2日下午在野党的总统候选人敦促朴槿惠下台之后,今天(11月5日)下午在首尔市中心光华门广场举行的示威集会上,第一大在野党共同民主党党首'
+    ],[
+      '朴槿惠要下台崔顺实会被死刑吗?朴槿惠下台事件背后的真相内幕',
+      `朴槿惠的闺蜜干政风波已经持续到现在还是被广泛的热议，如果朴槿惠的下台能够换来韩国的安宁那么她为什么不选择这么做了。朴槿惠已经失去了民心，所有的人都在抗议她反对她。但是一个国家的命运似乎就掌握在她的手里一样。`
+    ],[
+      '韩国女总统朴槿惠下台危机真相',
+      '事情还要从韩国顶尖大学——梨花女子大学的一位漂亮的女大学生说起。作为大学生，没事发发朋友圈，晒晒微博，这是再正常不过的事情了。不过一定要注意，千万不要刺激。这是大忌。可惜的是，这位女大学生，发了几张跟马的合影，并说明她的马价值几十亿韩元。这立刻引起了注意。'
+    ]]
+
+append style
+  link(rel="stylesheet", href="css/专题详情.css")
+
+append script
+  script(src="lib/echarts.min.js")
+  script(src="js/专题详情.js")
+
+block page
+  .m-titleline 朴槿惠下台
+    a(href="专题列表.html") 返回
+  .m-page-topic-detail
+    .head
+      .l
+        +radioT('信息列表')(name='topictab', checked)
+        +radioT('统计分析图')(name='topictab')
+        +radioT('修改专题')(name='topictab')
+      a.r(href="#") #[.i.oput]情报导出
+    .tabpage.l0
+      .search
+        .line
+          .l 相同文章：
+          .r
+            +radioL('合并')(name='sl0', checked)
+            +radioL('不合并')(name='sl0')
+        .line
+          .l 时间范围：
+          .r
+            +radioL('今日')(name='sl1', id="alltime1", checked)
+            +radioL('2天')(name='sl1')
+            +radioL('3天')(name='sl1')
+            +radioL('7天')(name='sl1')
+            label.radio.lab.seltime
+              input(type="radio", name='sl1')
+              .cont 自定义
+              .block
+                input(type="text", class="datetime", name="stime")
+                span.to 至
+                input(type="text", class="datetime", name="etime")
+                button.main 提交
+                button(onclick="$('#alltime1').click()") 取消
+        .line
+          .l 文章排序：
+          .r
+            +radioL('时间升序')(name='sl2', checked)
+            +radioL('时间降序')(name='sl2')
+      .delline
+        .l 全选
+        .r
+          a(href="javascript:;", onclick="multidel()") 删除
+      .thead
+        .item.l0
+          +checkbox(name="selall", onchange="selall(this)")
+        .item.l1 标题与内容
+        .item.l2 来源
+        .item.l3 时间
+        .item.l4 操作
+      - var n = 4
+      while n --> 0
+        .tr
+          .item.l0
+            +checkbox(name="selall")
+          .item.l1
+            .title 朴槿惠下台的最新消息
+            .cont 【2018年翻译硕士考研-百科热词连载18:闺蜜门】是2016年发生在韩国的政治事件,韩国总统朴槿惠被民众直指容许密友崔顺实干政,触发全国多城民众上街示威,要求朴槿惠下台。朴槿惠的支持率降至历史低点,数以千计的街头抗议者呼吁其辞职。这是2014年沉船事故后众多高层官员辞职和
+          .item.l2 
+            div BBC中文网
+          .item.l3
+            div 2017-01-01
+            div 12:12:40
+          .item.l4
+            div
+              label.star
+                input(type="checkbox", name="star")
+                .i.star
+            div
+              .i.rm
+      .footer
+        +pagenum
+    .tabpage.l1(style="display:none")
+      .search
+        .line
+          .l 时间范围：
+          .r
+            +radioL('今日')(name='sl4', id="alltime4", checked)
+            +radioL('2天')(name='sl4')
+            +radioL('3天')(name='sl4')
+            +radioL('7天')(name='sl4')
+            label.radio.lab.seltime
+              input(type="radio", name='sl4')
+              .cont 自定义
+              .block
+                input(type="text", class="datetime", name="stime")
+                span.to 至
+                input(type="text", class="datetime", name="etime")
+                button.main 提交
+                button(onclick="$('#alltime4').click()") 取消
+      .chart1w
+        .chart
+      .wrap
+        .chart2w
+          .title 传播力分析
+          .cont
+        .chart3w
+          .title 情报热词
+          .wrap
+            .cont
+              .item 涉密
+              .item 境外
+              .item 特朗普
+              .item 总统刺杀
+              .item 上台下台
+              .item 白宫
+              .item 韩国
+              .item 朴槿惠
+              .item 闹事
+    .tabpage.l2(style="display:none")
+      .m-pagc-topic-form
+        +pageTopicForm

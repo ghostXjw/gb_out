@@ -1,0 +1,27 @@
+extends part/page.pug
+
+append vars
+  - var title = '用户信息'
+
+append style
+  link(rel="stylesheet", href="css/情报收藏.css")
+
+block page
+  .m-titleline 个人情报收藏
+    a(href="javascript: history.back()") 返回
+  .m-page-star
+    - var n = 4
+    while n --> 0
+      .item
+        .head
+          .title 沛县庆祝“三八”国际劳动妇女节暨表彰大会举行
+          .del
+            .i.rm
+            | 删除
+        .body
+          .cont 沛县庆祝“三八”国际劳动妇女节暨表彰大会于三月七日在县职教中心礼堂举行。县领导张磊、刘华东、徐龙彬、王素真，县妇联主席苏莎莎、教育局局长贺磊、县委宣传部常务副部长胡红侠、妇联副主席张...沛县庆祝“三八”国际劳动妇女节暨表彰大会于三月七日在县职教中心礼堂举行。县领导张磊、刘华东、徐龙彬、王素真，县妇联主席苏莎莎、教育局局长贺磊、县委宣传部常务副部长胡红侠、妇联副主席张...
+          .foot
+            .from 来自：BBC中文网
+            .time 2017-01-01 12:00:00
+
+

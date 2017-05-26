@@ -1,0 +1,154 @@
+body
+  background none
+
+.m-head-com
+  background url('../img/b-全局.png') no-repeat
+  background-size cover
+  height 100px
+  padding-top 30px
+  box-sizing border-box
+  >.title
+    font-size 35px
+    font-family "楷体", fantasy
+    color white
+    width 1200px
+    display block
+    margin 0 auto
+
+.page-forgetpw
+  width 800px
+  margin 100px auto 0
+  >.progress
+    position relative
+    height 80px
+    margin-bottom 20px
+    >.bar
+      width 732px
+      height 4px
+      position absolute
+      top 16px
+      left 32px
+      background linear-gradient(to right, #22a4e0 50%, #dddddd 60%)
+      background-size 200%
+      z-index 1
+    >.item
+      width 36px
+      height 36px
+      margin-right 210px
+      float left
+      position relative
+      z-index 2
+      &:first-child
+        margin-left 14px
+      &:last-of-type
+        margin-right 0
+      &:before
+        content ''
+        height 30px
+        width 30px
+        position absolute
+        left 3px
+        top 3px
+        border 4px solid #dddddd
+        border-radius 50%
+        box-sizing border-box
+        background white
+      >.wrap
+        height 36px
+        width 36px
+        position absolute
+        border-radius 50%
+        top 0
+        left 0
+        background #22a4e0
+        text-align center
+        line-height @height
+        overflow hidden
+        .num
+          color white
+      >.label
+        width 64px
+        color #cccccc
+        font-size 12px
+        position absolute
+        left -14px
+        top 50px
+        text-align center
+    >.item.active
+      >.wrap>.i
+        display none
+      >.label
+        color #333333
+    >.item.active ~ .item
+      >.wrap
+        display none
+    >.item.active:nth-child(1) ~ .bar
+      background-position 100%
+    >.item.active:nth-child(2) ~ .bar
+      background-position 65%
+    >.item.active:nth-child(3) ~ .bar
+      background-position 30%
+    >.item.active:nth-child(4) ~ .bar
+      background-position 0
+
+.m-tabs
+  width 276px
+  margin 0 auto
+  >.tab
+    display none
+    &:first-child
+      display block
+    input[type=text]
+    input[type=password]
+      border 1px solid #22a4e0
+      line-height 28px
+      padding 0 9px
+      box-sizing border-box
+      border-radius 4px
+      width 100%
+    ::-webkit-input-placeholder
+      color #cccccc
+    >.line
+      margin-bottom 20px
+      overflow hidden
+      line-height 28px
+      >.label
+        width 76px
+        text-align right
+        box-sizing border-box
+        padding-right 18px
+        color #333333
+        font-size 14px
+        float left
+      >.cont
+        float left
+        width 200px
+        overflow hidden
+        >*
+          float left
+    #vcode1
+      width 98px
+      margin-right 10px
+    #vcode2
+      width 108px
+      margin-right 10px
+    button
+      height 30px
+      border 0
+      color white
+      border-radius 4px
+      font-size 12px
+      cursor pointer
+    button.primary
+      background #22a4e0
+      width 150px
+      margin 30px 0 0 76px
+      display block
+    button.red
+      background #de683a
+      width 82px
+    .title
+      font-size 28px
+      white-space nowrap
+      margin 20px 0 62px
+

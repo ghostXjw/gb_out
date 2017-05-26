@@ -1,0 +1,92 @@
+.m-page-kw
+  width 1200px
+  margin 0 auto
+  .toolbar
+    overflow hidden
+    margin 16px 0 10px
+    [type=text]
+      height 38px
+      width 265px
+      border 1px solid #eaeaea
+      border-radius 4px
+      box-sizing border-box
+      padding 0 44px 0 12px
+      background url(../img/i-search.png) no-repeat
+      background-position right 14px center
+      float left
+    .btns
+      height 38px
+      border 1px solid #eaeaea
+      border-radius 4px
+      overflow hidden
+      float right
+      button
+        background transparent
+        border 0
+        line-height @height
+        width 88px
+        color #22a4e0
+        cursor pointer
+      >:first-child
+        border-right @border
+        color #ff8080
+
+.table
+  overflow hidden
+  border 1px solid #eaeaea
+  border-radius 4px
+  margin-bottom 9px
+  line-height 38px
+  color #999999
+  font-size 14px
+  width 100%
+  display table
+  table-layout fixed
+  >.item
+    display table-cell
+    border-right @border
+    text-align center
+    vertical-align middle
+    &:last-child
+      border-right 0
+    &.l1
+      width 49px
+    &.l2
+      width 80px
+    &.l3
+      width 200px
+    &.l4
+      width 805px
+    &.l6
+      width 106px
+    &.l7
+      width 698px
+
+.table.tbody
+  [type=text]
+    line-height 28px
+    border 1px solid #5ebde8
+    border-radius 4px
+    width 100%
+    box-sizing border-box
+    padding 0 8px
+    transition all .3s ease
+    &:disabled
+      border-color transparent
+      background transparent
+      text-align center
+  >.item
+    >.line
+      border-bottom 1px solid #eaeaea
+      padding 0 10px
+      &:last-child
+        border-bottom 0
+    &.l3
+      [type=text]
+        width 120px
+    &.l5
+      >.line
+        height 77px
+        line-height @height
+        >.i
+          cursor pointer

@@ -1,0 +1,122 @@
+body
+  background none
+
+.m-head-ss
+  background url('../img/b-全局.png') no-repeat
+  background-size cover
+  height 167px
+  padding-top 44px
+  box-sizing border-box
+  margin-bottom -28px
+  >.title
+    font-size 55px
+    font-family "楷体", fantasy
+    color white
+    text-align center
+  .m-nav-a
+    position absolute
+    top 42px
+    right 42px
+
+form.searchbox
+  margin-bottom 57px
+  
+.m-page-res
+  width 1200px
+  margin 0 auto
+  display table
+  >.lnav
+    display table-cell
+    width 203px
+    border-right 1px solid #eaeaea
+    vertical-align top
+    padding-top 22px
+    >.title
+      text-indent 14px
+    >.group
+      width 192px
+      border-bottom 1px dashed #d9d9d9
+      padding 16px 14px
+      box-sizing border-box
+      &:last-child
+        border-bottom 0
+  >.rcont
+    margin-left 48px
+    vertical-align top
+    >.item
+      height 146px
+      border-bottom 1px solid #eaeaea
+      padding-top 22px
+      box-sizing border-box
+      font-size 14px
+      .hl
+        color #ff4343
+      >.head
+        overflow hidden
+        margin-bottom 8px
+        >.title
+          font-size 16px
+          color #333333
+          float left
+          width 600px
+          white-space nowrap
+          text-overflow ellipsis
+          overflow hidden
+        >.time
+          float right
+          color #aaaaaa
+      >.cont
+        color #666666
+        line-height 24px
+        height @line-height * 2
+        overflow hidden
+        margin-bottom 8px
+      >.foot
+        overflow hidden
+        line-height 18px
+        >.from
+          float left
+          color #b1b1b1
+          font-size 12px
+        >.btns
+          float right
+          >.i
+            cursor pointer
+            margin-right 0
+    >.footer
+      padding 24px 0 10px
+
+label.radio.seltime
+  cursor default
+  .cont
+    margin-bottom 12px
+    cursor pointer
+  .block
+    color #346bdb
+    font-size 12px
+    display none
+    input
+      display block
+      border 1px solid @color
+      line-height 23px
+      width 152px
+      padding-left 8px
+      border-radius 4px
+    .to
+      text-align center
+    .btns
+      margin-top 10px
+      button
+        cursor pointer
+        line-height 23px
+        border 1px solid @color
+        background white
+        color @color
+        border-radius 4px
+        width 75px
+        &.main
+          background @color
+          color white
+          margin-right 10px
+  :checked ~ .block
+    display block

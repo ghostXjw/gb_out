@@ -1,0 +1,83 @@
+extends part/basic.pug
+
+append style
+  link(rel="stylesheet", href="css/搜索结果.css")
+
+append script
+  script(src="js/搜索结果.js")
+
+append vars
+  -
+    var title = "搜索结果"
+    var 结果列表 = [[
+      '沛县人民政府网',
+      '沛县人民政府官方网站... · 对推进沛县全民创业、加快民营经济发展的建.. · 沛县科技工作创新突破意见征集 · 往期民意征集情况 更多>> 在线调查 您觉得面对现在的..'
+    ],[
+      '沛县便民网_沛县生活消费门户网站-沛县百姓的网络交流平台沛县便民网_沛县生活消费门户网站-沛县百姓的网络交流平台沛县便民网_沛县生活消费门户网站-沛县百姓的网络交流平台',
+      '沛县便民网是一个专门提供沛县本地生活、消费信息和情感交流的网上生活家园。专注沛县城市百姓生活,让百姓享受时尚生活乐趣。'
+    ],[
+      '沛县论坛_沛县便民网论坛_130万沛县人民的网上家园',
+      `★沛县论坛★是沛县便民网旗下论坛,提供沛县本地生活、消费信息和情感交流的网上交流平台,努力发展为沛县龙城论坛第一,为沛县汉城网络发展贡献!`
+    ],[
+      '首页---沛县教育网',
+      '沛县中小学联盟学区工作实施方案 沛县教育局2017年工作要点 关于表彰2016年度教育系统先进单位、先进个人的 沛县2017年面向社会认定中小学教师资格公告 更多<< 管理应用'
+    ],[
+      '江苏省徐州市沛县属于徐州的哪个区_百度知道',
+      `属于徐州的县级市，不属于任何一个区。
+      徐州的区包括：泉山区 云龙区 鼓楼区 九里区 铜山新区 金山桥开发区 贾汪区
+      县级市包括：新沂市 邳州市 睢宁县 丰县 沛县 
+      2005年，徐州市辖5个市辖区、4个县，代管2个县级市。 
+      2005年5月18日，国务院批准（国函[2005]41号）：将铜山县大黄山镇和大庙镇划归徐州市鼓楼区管辖。2005年6月14日，江苏省人民政府（苏政发[2005]53号文件）同意调整徐州市部分行政区划：将铜山县大黄山镇和大庙镇划归徐州市鼓楼区管辖。行政区划调整后，鼓楼区行政区域面积212平方千米，人口38.1万，辖8个街道办事处、2个镇`
+    ]]
+    for(let i = 0; i < 5; i++){
+      for(let j = 0; j < 2; j++){
+        结果列表[i][j] = 结果列表[i][j].replace(/沛县/g, '<span class="hl">沛县</span>')
+      }
+    }
+
+block content
+  .m-head-ss
+    .title 信息搜索
+    +nav-a()
+  form(action="搜索结果.html").searchbox
+    input(type="text", name="q", placeholder="请输入要搜索的内容")
+    button 搜索一下     
+  .m-page-res
+    .lnav
+      .title 信息筛选
+      .group
+        +radioC('全文')(name='ln0', checked)
+        +radioC('标题')(name='ln0')
+      .group
+        +radioC('全部时间')(name='ln1', id="alltime", checked)
+        +radioC('一天内')(name='ln1')
+        +radioC('一周内')(name='ln1')
+        +radioC('一月内')(name='ln1')
+        label.radio.lst.seltime
+          input(type="radio", name='ln1')
+          .cont 自定义时间
+          .block
+            input(type="text", class="datetime", name="stime")
+            .to 至
+            input(type="text", class="datetime", name="etime")
+            .btns
+              button.main 提交
+              button(onclick="$('#alltime').click()") 取消
+      .group
+        +radioC('时间升序')(name='ln2', checked)
+        +radioC('时间降序')(name='ln2')
+    .rcont
+      each val in 结果列表
+        .item
+          .head
+            a.title(href="信息详情.html")!= val[0]
+            .time 2017年4月28日
+          .cont!= val[1]
+          .foot
+            .from 信息来源：BBC中文网
+            .btns
+              label.star
+                input(type="checkbox", name="star")
+                .i.ostar
+      .footer
+        +pagenum

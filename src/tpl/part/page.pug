@@ -1,0 +1,27 @@
+extends basic.pug
+
+mixin pageTopicForm
+  +formline('专题名称', 'tname', '请输入专题名称')
+  .m-formline
+    .label 专题简介
+    textarea.m-text(name="desp", placeholder="请输入简介")
+  +formline('监测起始时间', 'stime', '请选择时间', false, 'datetime')
+  +formline('监测结束时间', 'etime', '请选择时间', false, 'datetime')
+  +formline('地域关键词', 'lkw', '请输入地域关键词')
+  +formline('人物关键词', 'pkw', '请输入人物关键词')
+  +formline('事件关键词', 'ekw', '请输入事件关键词')
+  +formline('排除关键词', 'okw', '请输入排除关键词')
+  +fwin-btns('new')
+
+append style
+  link(rel="stylesheet", href="css/page.css")
+
+block content
+  .m-head-com
+    a.title(href="index.html") 信息搜索平台
+    +nav-a(true)
+  block page
+
+append tpl
+  +fwin('new', '新建专题')
+    +pageTopicForm

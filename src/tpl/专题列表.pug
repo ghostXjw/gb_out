@@ -1,0 +1,16 @@
+extends part/page.pug
+
+append vars
+  - var title = '专题列表'
+
+append style
+  link(rel="stylesheet", href="css/专题列表.css")
+
+block page
+  .m-page-topic-list
+    button.addtopic(onclick="$('.m-fwin-new').show()")
+      .i.add
+      | 添加专题
+    .topicList
+      +topic-item-4
+      +topic-item-4

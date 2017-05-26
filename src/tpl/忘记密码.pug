@@ -1,0 +1,59 @@
+extends part/basic.pug
+
+append vars
+  - var title = "忘记密码"
+
+append style
+  link(rel="stylesheet", href="css/忘记密码.css") 
+
+append script
+  script(src="js/忘记密码.js")
+
+block content
+  .m-head-com
+    a.title(href="登录.html") 信息搜索平台
+  .page-forgetpw
+    .progress
+      each val, i in '填写用户名 验证身份 设置新密码 完成'.split(' ')
+        .item(class={active: i == 0})
+          .wrap
+            .i.wyes
+            .num= i + 1
+          .label= val
+      span.bar
+    .m-tabs
+      .tab
+        .line
+          .label 用户名
+          .cont
+            input(type="text", placeholder="请输入用户名")
+        .line
+          .label 验证码
+          .cont
+            input(type="text", placeholder="请输入验证码", id="vcode1")
+            img(src="img/t-vcode.png")
+        button.primary(onclick="next()") 下一步  
+      .tab
+        .line
+          .label 邮箱
+          .cont
+            input(type="text", placeholder="请输入邮箱")
+        .line
+          .label 验证码
+          .cont
+            input(type="text", placeholder="请输入验证码", id="vcode2")
+            button.red 获取验证码
+        button.primary(onclick="next()") 下一步  
+      .tab
+        .line
+          .label 新密码
+          .cont
+            input(type="password", placeholder="请输入新密码")
+        .line
+          .label 确认密码
+          .cont
+            input(type="password", placeholder="请再次输入密码")
+        button.primary(onclick="next()") 下一步  
+      .tab
+        .title 恭喜你，密码重置成功！
+        button.primary(onclick="location.href='登录.html'") 返回登录页  

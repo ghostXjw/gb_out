@@ -1,0 +1,20 @@
+extends part/basic.pug
+
+append style
+  link(rel="stylesheet", href="css/index.css") 
+
+append vars
+  - var title = "信息搜索"
+
+block content
+  .m-page-bg
+  .m-page-index
+    .head
+      +nav-a
+    .title 信息搜索
+    form(action="搜索结果.html").searchbox
+      input(type="text", name="q", placeholder="请输入要搜索的内容")
+      button 搜索一下
+    .topicList
+      +topic-item-4
+            

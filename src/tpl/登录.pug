@@ -1,0 +1,30 @@
+extends part/basic.pug
+
+append vars
+  - var title = "登录"
+
+append style
+  link(rel="stylesheet", href="css/登录.css") 
+
+append script
+  script(src="js/登录.js")
+
+block content
+  .m-page-bg
+  .m-page-login
+    .head
+      .title 信息搜索平台
+    form(action="index.html", method="get")
+      input(type="text", name="username", placeholder="请输入用户名", onkeyup="remember()")
+      input(type="password", name="password", placeholder="请输入密码", onkeyup="remember()")
+      .identity
+        input(type="text")
+        .img
+          img(src="img/t-验证码.png")
+        a(href="#") 看不清换一张
+      .rememberme
+        +checkbox(name="rememberme", onchange="remember()")
+          .cont 记住我的信息
+        a(href="忘记密码.html") 忘记密码
+      button 登录
+      

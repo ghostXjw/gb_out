@@ -1,0 +1,81 @@
+extends part/page.pug
+
+append vars
+  - var title = '用户信息'
+
+append style
+  link(rel="stylesheet", href="css/用户管理.css")
+
+mixin comuserinfo
+  +formline('账户名称', 'name', '请输入账户名称')
+  .m-formline
+    .label 账户级别
+    .m-selector
+      input.m-text(type="text", readonly, placeholder="请选择账户级别", name="level")
+      .drop
+        .item L1
+        .item L2
+        .item L3
+  .m-formline
+    .label 账户权限
+    .m-selector
+      input.m-text(type="text", readonly, placeholder="请选择账户权限", name="func")
+      .drop
+        .item 查看情报、提交情报
+        .item 查看、添加、修改、删除关键词
+        .item 查看、添加、修改、删除专题事件
+
+block page
+  .m-titleline 用户管理
+    a(href="javascript: history.back()") 返回
+  .m-userprofile
+    .line
+      .l 当前用户
+      .r 张三
+      a.m(href="javascript:$('.m-fwin-passwd').show();") 修改密码
+    .line
+      .l 当前级别
+      .r L2
+    .line
+      .l 账号权限
+      .r 管理员
+    .addbtn(onclick="$('.m-fwin-adduser').show()")
+      .i.addusr
+      | 添加账户
+  .table
+    .th
+      .item.l0 序号
+      .item.l1 账号名称
+      .item.l2 绑定邮箱
+      .item.l3 当前级别
+      .item.l4 用户权限
+      .item.l5 操作
+    - var i = 9
+    while i --> 0
+      .tr
+        .item.l0 1
+        .item.l1 李四
+        .item.l2 12345@163.com
+        .item.l3 L2
+        .item.l4
+          .line 查看、添加、修改、删除关键词
+          .line 查看、添加、修改、删除专题事件
+        .item.l6(onclick="$('.m-fwin-muser').show()")
+          .i.edit
+        .item.l7(onclick="$('.m-fwin-delusr').show()")
+          .i.rm
+  +pagenum
+
+append tpl
+  +fwin('adduser', '添加')
+    +comuserinfo
+    +formline('绑定邮箱', 'email', '请输入邮箱')
+    +formline('账号密码', 'passwd', '请输入密码', true)
+    +formline('确认密码', 'passwd', '请再次输入密码', true)
+    +fwin-btns('adduser')
+  +fwin('muser', '修改账户')
+    +comuserinfo
+    +fwin-btns('muser')
+  +fwin('delusr', '修改账户')
+    .msg 确定要删除这个账户的相关信息吗
+    +fwin-btns('delusr')

@@ -1,0 +1,42 @@
+extends part/page.pug
+
+append vars
+  - var title = '信息详情'
+
+append style
+  link(rel="stylesheet", href="css/信息详情.css")
+
+append script
+  script(src="lib/clipboard.min.js")
+  script(src="js/信息详情.js")
+
+block page
+  .m-titleline 信息详情
+    a(href="javascript: history.back()") 返回
+  .m-page-detail
+    .head
+      .title 沛县庆祝“三八”国际劳动妇女节暨表彰大会举行
+      .btns
+        label(id="copybtn", data-clipboard-text="http://www.xici.net/d238177928.htm")
+          .i.links
+          | 复制链接
+        label.star
+          input(type="checkbox", name="star")
+          .i.star
+          .cont
+    .info
+      .line
+        .label 情报来源：
+        .cont BBC中文网
+      .line
+        .label 监测时间：
+        .cont 2017-03-07 14:37:00
+      .line
+        .label 原文链接：
+        .cont
+          a(href="http://www.xici.net/d238177928.htm")
+            | http://www.xici.net/d238177928.htm
+    .content
+      div 沛县庆祝“三八”国际劳动妇女节暨表彰大会于三月七日在县职教中心礼堂举行。县领导张磊、刘华东、徐龙彬、王素真，县妇联主席苏莎莎、教育局局长贺磊、县委宣传部常务副部长胡红侠、妇联副主席张素华及社会各界的妇女代表、受表彰的团体和个人、爱心志愿者600多人出席了会议。
+      img(src="img/t-detail.png")
+      div 张晓琳、王海峰等20位“三八红旗手”；沛县中医院重症医学科、沛县正阳小学等10个“巾帼文明岗”；于敏等20位“巾帼建功标兵”；李侠等10位“十佳巾帼创客”；陈桂莲等10位“十佳美德典范”、赵艳等10位“十佳爱心妈妈”、李凌春、张真等10位“十佳巾帼志愿者”；袁倩然等10位“十佳妇联干部”以及“益”起为书包徒步等10个“十佳创新项目”分别进行表彰。 纪念活动上还进行了精彩的文艺演出，诗朗诵《巾帼之声――三月的怒放》和手语表演《堂堂正正一辈子》、小品《大家小家》获得了全场观众的热烈掌声。 活动在由沛县实验幼儿园老师集体表演的歌伴舞《共筑中国梦》中落下帷幕。

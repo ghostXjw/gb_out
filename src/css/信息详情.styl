@@ -1,0 +1,53 @@
+.m-page-detail
+  width 1200px
+  box-sizing border-box
+  padding 0 15px
+  margin 0 auto
+  >.head
+    overflow hidden
+    margin-bottom 22px
+    >.title
+      font-size 26px
+      float left
+    >.btns
+      float right
+      font-size 12px
+      margin-right -16px
+      label
+        width 100px
+        display inline-block
+        line-height 32px
+        cursor pointer
+      .i
+        margin-right 10px
+      label.star
+        .cont
+          display inline-block
+        .cont:after
+          content '收藏'
+        :checked~.cont:after
+          content '已收藏'
+        :checked~.i
+          background url(../img/i-fstar.png)
+  >.info
+    color #999999
+    font-size 12px
+    margin-bottom 22px
+    >.line
+      height 22px
+      line-height @height
+      >*
+        display inline-block
+      >.label
+        width 68px
+      a
+        color #22a4e0
+  >.content
+    font-size 14px
+    line-height 24px
+    color #333333
+    text-indent 28px
+    img
+      margin 16px auto
+      display block
+      max-width 1170px

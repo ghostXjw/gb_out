@@ -1,0 +1,435 @@
+html
+  position relative
+  min-height 100%
+
+body
+  margin 0 0 54px 
+  font-family 'Microsoft Yahei', sans-serif
+  font-size 16px
+  background url('../img/b-全局.png') no-repeat
+  background-size contain
+
+a
+  text-decoration none
+  color black
+ 
+input
+button
+  outline none
+  padding 0
+
+textarea
+  outline none
+  font-family inherit
+  resize vertical
+  max-height 240px
+
+.m-nav-a
+  .item
+    color white
+    margin-right 22px
+    position relative
+    cursor pointer
+    display inline-block
+    height 42px
+    line-height @height
+    &.kw
+      margin-right 8px
+    &.usr
+      padding 0 20px
+      &:hover
+        background #4895d1
+        border-radius 4px 4px 0 0
+  .drop
+    position absolute
+    top 42px
+    left 0
+    right 0
+    background #4895d1
+    padding 0 16px
+    border-radius 0 0 4px 4px
+    display none
+    a
+      display block
+      color white
+      border-bottom 1px solid #8ab4d9
+      font-size 14px
+    a:last-child
+      border-bottom 0
+  .item:hover>.drop
+    display block
+
+.m-page-bg
+  position absolute
+  top 250px
+  left 0
+  right 0
+  bottom 0
+  background url('../img/b-登录.png') no-repeat
+  background-position center top
+
+label.star
+  display inline-block
+  cursor pointer
+  input
+    display none
+  :checked~.i
+    background url(../img/i-fstar.png)
+
+label.checkbox
+  display inline-block
+  input
+    display none
+  .img
+    height 18px
+    width 18px
+    display inline-block
+    vertical-align text-bottom
+    background url(../img/i-unchecked.png)
+  :checked ~ .img
+    background url(../img/i-checked.png)
+  .cont
+    font-size 14px
+    display inline-block
+    cursor pointer
+
+label.radio
+  cursor pointer
+  input
+    display none
+
+label.radio.tab
+  float left
+  .cont
+    color #333333
+    width 140px
+    height 38px
+    box-sizing border-box
+    border-right 1px solid #eaeaea
+    line-height 36px
+    font-size 14px
+    text-align center
+  :checked ~ .cont
+    color #22a4e0
+    border-bottom 2px solid #22a4e0
+
+label.radio.lab
+  font-size 14px
+  display inline-block
+  margin 0 6px
+  .cont
+    color #999999
+  :checked ~ .cont
+    color #22a4e0
+
+label.radio.lst
+  font-size 14px
+  display block
+  line-height 28px
+  .cont
+    color #2d2d2d
+    &:before
+      content ''
+      display inline-block
+      width 5px
+      height 16px
+      border-radius 3px
+      margin-right 4px
+      vertical-align -3px
+  :checked ~ .cont
+    color #346bdb
+    &:before
+      background @color
+
+.m-topic-item
+  width 291px
+  height 407px
+  float left
+  border 1px solid #d3d3d3
+  border-radius 4px
+  margin-right 9px
+  background white
+  overflow hidden
+  &:nth-child(4n)
+    margin-right 0
+  >.head
+    height 60px
+    border-bottom @border
+    padding 17px 16px
+    box-sizing border-box
+    position relative
+    >.title
+      float left
+      font-size 18px
+      width 170px
+      white-space nowrap
+      text-overflow ellipsis
+      overflow hidden
+      label.checkbox
+        .img
+          margin-right 10px
+          display none
+    >.num
+      float right
+      font-size 14px
+      margin-top 6px
+      >.hl
+        color #ff3131
+    >.over
+      position absolute
+      top 0
+      left 0
+      right 0
+      bottom 0
+      background rgba(255,255,255,.8)
+      padding 10px 43px
+      opacity 0
+      transition all .3s ease
+      a
+        height 41px
+        float left
+        width 90px
+        text-align center
+        line-height @height
+        color white
+        border-radius 4px
+      .btn1
+        margin-right 25px
+        background #3a71de linear-gradient(to left, #3a71de, #6e9eff)
+      .btn2
+        background #ee3636 linear-gradient(to left, #ee3636, #ff6e6e)
+    &:hover>.over
+      opacity 1
+  >.body
+    padding 14px 17px 0
+    >.desp
+      font-size 14px
+      line-height 26px
+      height @line-height * 4
+      overflow hidden
+      margin-bottom 18px
+    >.line
+      font-size 14px
+      overflow hidden
+      line-height 25px
+      margin-bottom 16px
+      >.num
+        float left
+        width 25px
+        height 25px
+        border-radius 4px
+        color #7c7c7c
+        margin-right 8px
+        text-align center
+        &.active
+          background #4995d1
+          color white
+      >.cont
+        float left
+        width 224px
+        white-space nowrap
+        text-overflow ellipsis
+        overflow hidden
+
+.m-page-topiclib.share .m-topic-item
+.m-page-topiclib.rmall .m-topic-item
+.m-topic-item.active
+  >.head
+    >.title
+      label.checkbox
+        .img
+          display inline-block
+    >.over
+      display none
+
+.m-pagenum
+  a
+    height 34px
+    line-height @height
+    color #346bdb
+    border 1px solid @color
+    margin 0 8px
+    display inline-block
+    text-align center
+    border-radius 3px
+  a.active
+    color #313233
+    border-color #eaeaea
+    cursor default
+  a.num
+    width 34px
+  a.next
+    width 82px
+
+.m-foot
+  position absolute
+  left 0
+  right 0
+  bottom 0
+  height 54px
+  line-height @height
+  text-align center
+  font-size 14px
+  color #838383
+
+.i
+  width 18px
+  height 18px
+  display inline-block
+  vertical-align text-bottom
+  margin-right 3px
+  for i in list kw user add oput rm addl yes ryes no edit star orm ostar close addusr links wyes share
+    &.{i}
+      background-image 'url(../img/i-%s.png)' % i
+
+form.searchbox
+  width 708px
+  margin 0 auto 120px
+  overflow hidden
+  >input
+    float left
+    border 1px solid #346bdb
+    background white
+    width 584px
+    height 57px
+    text-indent 18px
+    border-top-left-radius 4px
+    border-bottom-left-radius 4px
+  ::-webkit-input-placeholder
+    color #b2b2b2
+  >button
+    float left
+    font-size 16px
+    color white
+    width 122px
+    height 59px
+    border 0
+    background #346bdb
+    border-top-right-radius 4px
+    border-bottom-right-radius 4px
+    cursor pointer
+
+.m-formline
+  margin-bottom 20px
+  clear both
+  &:after
+    content ''
+    clear both
+    display block
+  .label
+    float left
+    line-height 30px
+    text-align right
+    box-sizing border-box
+    padding-right 16px
+    width 100px
+    color #333333
+    font-size 14px
+  .m-text
+    float left
+    width 200px
+  ::-webkit-input-placeholder
+    color #cccccc
+
+.m-fwin
+  position fixed
+  top 0
+  left 0
+  right 0
+  bottom 0
+  background rgba(0,0,0,.5)
+  display none
+  .fwin
+    background white
+    width 400px
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%, -50%)
+    color #333333
+    border-radius 4px
+    >.head
+      height 50px
+      box-sizing border-box
+      border-bottom 1px solid #eaeaea
+      padding 16px 20px
+      >.title
+        float left
+      >.i
+        float right
+        cursor pointer
+    >.body
+      padding 39px 50px
+      >.msg
+        text-align center
+
+.m-btn
+  height 30px
+  box-sizing border-box
+  border 0
+  color white
+  border-radius 4px
+  font-size 12px
+  cursor pointer
+  &.primary
+    background #22a4e0
+  &.normal
+    color #22a4e0
+    background white
+    border 1px solid @color
+
+.m-text
+  border 1px solid #22a4e0
+  line-height 28px
+  padding 0 9px
+  box-sizing border-box
+  border-radius 4px
+  width 100%
+
+.m-btns
+  overflow hidden
+  margin-top 40px
+  button
+    width 134px
+    float left
+  .primary
+    margin-right 30px
+
+.m-fwin-passwd
+  .forget
+    float right
+    color #999999
+    font-size 12px
+    margin -17px 0 6px
+
+.m-selector
+  position relative
+  >.drop
+    position absolute
+    left 0
+    right 0
+    top 30px
+    border 1px solid #22a4e0
+    border-top 0
+    display none
+    background white
+    z-index 10
+    border-radius 0 0 4px 4px
+    .item
+      font-size 12px
+      padding 6px 14px
+      line-height 16px
+      box-sizing border-box
+      cursor pointer
+      &:hover
+        background #22a4e0
+        color white
+  [type=text]
+    background url(../img/bg-drop.png) no-repeat
+    background-position right 10px center
+    cursor pointer
+    padding-right 30px
+  [type=text]:focus
+    border-radius 4px 4px 0 0
+  [type=text]:focus + .drop
+    display block

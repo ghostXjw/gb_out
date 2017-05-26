@@ -1,0 +1,54 @@
+extends part/page.pug
+
+append vars
+  - var title = '关键词设置'
+
+append style
+  link(rel="stylesheet", href="css/关键词设置.css")
+
+append script
+  script(src="js/关键词设置.js")
+
+block page
+  .m-page-kw
+    .toolbar
+      input(type="text", placeholder="输入关键词...", onkeyup="dosearch.call(this, event)")
+      .btns
+        button(onclick="multidel()") #[.i.rm]删除
+        button(onclick="addnew.call(this)") #[.i.addl]添加
+    .table.thead
+      .item.l1
+        +checkbox(name="selall", onchange="selall(this)")
+      .item.l2 序号
+      .item.l3 关键词名称
+      .item.l4 关键词组
+      .item 操作
+
+append tpl
+  script#tbodyTemplate(type="text/x-handlebars-template")
+    .table.tbody
+      .item.l1
+        +checkbox(name="selitem")
+      .item.l2 {{num}}
+      .item.l3
+        input(type="text", value="{{name}}", disabled)
+      .item.l6
+        .line 地名
+        .line 人名
+        .line 事件名
+        .line 排除
+      .item.l7
+        .line
+          input(type="text", name="location", value="{{location}}", disabled)
+        .line
+          input(type="text", name="people", value="{{people}}", disabled)
+        .line
+          input(type="text", name="event", value="{{event}}", disabled)
+        .line
+          input(type="text", name="exclude", value="{{exclude}}", disabled)
+      .item.l5
+        .line
+          .i.edit(onclick="linebtn(this)")
+        .line
+          .i.rm(onclick="linebtn(this)")
+
